@@ -43,31 +43,36 @@ const Dashboard: React.FC = () => {
             </Text>
           </VStack>
 
-          {/* Top Row: Active Bookings + Right Column (Employee List + Stats) */}
+          {/* First Row: Employee List positioned before stats */}
+          <Flex gap={6} mb={6} align="start">
+            {/* Empty space to align with active bookings */}
+            <Box flex="0 0 55%"></Box>
+            
+            {/* Employee List in right column */}
+            <Box flex={1}>
+              <EmployeeList />
+            </Box>
+          </Flex>
+
+          {/* Second Row: Active Bookings + Stats Cards */}
           <Flex gap={6} mb={6} align="start">
             {/* Active Bookings - 55% width */}
             <Box flex="0 0 55%">
               <ActiveBookings />
             </Box>
 
-            {/* Right Column - Employee List and Stats Cards */}
+            {/* Stats Cards in remaining space */}
             <Box flex={1}>
-              {/* Employee List */}
-              <Box mb={6}>
-                <EmployeeList />
-              </Box>
-              
-              {/* Stats Cards */}
               <StatsCards />
             </Box>
           </Flex>
 
-          {/* Recommended Programs - Full Width */}
+          {/* Third Row: Recommended Programs - Full Width */}
           <Box mb={6}>
             <RecommendedPrograms />
           </Box>
 
-          {/* Recent Messages and Invoices - Side by Side */}
+          {/* Fourth Row: Recent Messages and Invoices - Side by Side */}
           <RecentSections />
         </Container>
       </Box>
