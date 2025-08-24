@@ -36,10 +36,10 @@ const EmployeeItem: React.FC<EmployeeItemProps> = ({
       <HStack spacing={3}>
         <Avatar size="sm" name={name} />
         <VStack align="start" spacing={0}>
-          <Text fontSize="14px" fontWeight="500" color="gray.800">
+          <Text fontSize="12px" fontWeight="500" color="gray.800">
             {name}
           </Text>
-          <Text fontSize="12px" color="gray.500">
+          <Text fontSize="10px" color="gray.500">
             {email}
           </Text>
         </VStack>
@@ -49,16 +49,16 @@ const EmployeeItem: React.FC<EmployeeItemProps> = ({
       <VStack align="end" spacing={1}>
         <HStack spacing={4}>
           <VStack spacing={0}>
-            <Text fontSize="14px" fontWeight="600" color="gray.800">
+            <Text fontSize="12px" fontWeight="600" color="gray.800">
               {programs}
             </Text>
             <Text fontSize="10px" color="gray.500">
               Programs
             </Text>
           </VStack>
-          
-          <VStack spacing={0}>
-            <Text fontSize="14px" fontWeight="600" color="gray.800">
+
+          <VStack spacing={0} align="end">
+            <Text fontSize="12px" fontWeight="600" color="gray.800">
               {daysAgo} days ago
             </Text>
             <Text fontSize="10px" color="gray.500">
@@ -112,7 +112,7 @@ const EmployeeList: React.FC = () => {
       border="1px solid"
       borderColor="gray.200"
       boxShadow="0 1px 3px 0 rgba(0, 0, 0, 0.1)"
-      w="320px"
+      w="100%"
       h="fit-content"
     >
       {/* Header */}
@@ -121,16 +121,12 @@ const EmployeeList: React.FC = () => {
           <Text fontSize="16px" fontWeight="600" color="gray.800">
             Onboarded Employee List
           </Text>
-          <Badge
-            colorScheme="gray"
-            variant="solid"
-            borderRadius="full"
-            px={2}
-            py={1}
-            fontSize="12px"
+          <Text
+            fontWeight="bold"
+            fontSize="16px"
           >
-            48
-          </Badge>
+            (48)
+          </Text>
         </HStack>
         
         <Button

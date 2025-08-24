@@ -38,18 +38,20 @@ const StatCard: React.FC<StatCardProps> = ({
     <Box
       bg="white"
       borderRadius="12px"
-      p={6}
-      border="1px solid"
-      borderColor="gray.200"
+      p={4}
+      border="1px solid none"
       boxShadow="0 1px 3px 0 rgba(0, 0, 0, 0.1)"
       flex={1}
     >
       {/* Header with Icon */}
-      <Flex justify="space-between" align="flex-start" mb={4}>
+      <Flex justify="space-between" align="flex-start" mb={4} flexDirection="column">
         <VStack align="start" spacing={1}>
           <Text fontSize="14px" color="gray.500" fontWeight="500">
             {title}
           </Text>
+          <Circle size="36px" bg={iconBg}>
+            <Icon as={icon} boxSize={4} color="white" />
+          </Circle>
           <Text fontSize="28px" fontWeight="700" color="gray.800">
             {value}
           </Text>
@@ -58,9 +60,6 @@ const StatCard: React.FC<StatCardProps> = ({
           </Text>
         </VStack>
         
-        <Circle size="48px" bg={iconBg}>
-          <Icon as={icon} boxSize={6} color="white" />
-        </Circle>
       </Flex>
 
       {/* Trend Indicator */}
@@ -100,7 +99,7 @@ const StatsCards: React.FC = () => {
   ];
 
   return (
-    <HStack spacing={6} w="100%">
+    <HStack spacing={4} w="100%" alignItems="stretch">
       {stats.map((stat, index) => (
         <StatCard key={index} {...stat} />
       ))}

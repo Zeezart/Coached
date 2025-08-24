@@ -14,6 +14,7 @@ import {
   Button,
   Badge,
   Icon,
+  Divider,
 } from '@chakra-ui/react';
 import { FiStar, FiUsers } from 'react-icons/fi';
 
@@ -41,7 +42,7 @@ const BookingCard: React.FC<BookingCardProps> = ({
       border="1px solid"
       borderColor="gray.200"
       boxShadow="0 1px 3px 0 rgba(0, 0, 0, 0.1)"
-      minW="280px"
+      minW="250px"
     >
       {/* Session Title */}
       <Text
@@ -101,6 +102,7 @@ const BookingCard: React.FC<BookingCardProps> = ({
         </HStack>
       </Flex>
 
+        <Divider borderColor="gray.200" my={4} />
       {/* View Details Button */}
       <Button
         variant="ghost"
@@ -109,6 +111,8 @@ const BookingCard: React.FC<BookingCardProps> = ({
         fontWeight="500"
         w="100%"
         _hover={{ bg: 'brand.50' }}
+        bgColor= "#fff0f4"
+        p="1rem 0"
       >
         View Details
       </Button>
@@ -150,7 +154,7 @@ const ActiveBookings: React.FC = () => {
   ];
 
   return (
-    <Box>
+    <Box bg="white" p={6} borderRadius="12px" boxShadow="sm" >
       {/* Section Header */}
       <Flex justify="space-between" align="center" mb={4}>
         <HStack spacing={3}>

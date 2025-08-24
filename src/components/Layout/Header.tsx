@@ -29,12 +29,13 @@ const Header: React.FC = () => {
       h="72px"
       position="fixed"
       top={0}
-      left="240px"
-      right={0}
-      zIndex={50}
-      px={6}
+      // left="240px"
+      //right={0}
+      zIndex={100}
+      // px={6}
+      w="100%"
     >
-      <Flex align="center" justify="space-between" h="100%">
+      <Flex align="center" justify="space-between" h="100%" p="0 2rem">
         {/* Logo */}
         <Text
           fontSize="24px"

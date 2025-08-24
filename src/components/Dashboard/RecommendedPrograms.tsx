@@ -44,16 +44,20 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
       border="1px solid"
       borderColor="gray.200"
       boxShadow="0 1px 3px 0 rgba(0, 0, 0, 0.1)"
-      w="280px"
+      minW="380px"
+      display="flex"
+      flexDirection="row"
     >
       {/* Program Image */}
-      <Image
+      <Box w="100%">
+        <Image
         src={image}
         alt={title}
         w="100%"
-        h="140px"
+        h="100%"
         objectFit="cover"
       />
+      </Box>
 
       {/* Program Content */}
       <Box p={5}>
@@ -71,35 +75,25 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
           {/* Stats */}
           <HStack spacing={4}>
             <VStack align="start" spacing={0}>
-              <Text fontSize="18px" fontWeight="700" color="gray.800">
-                {bookings}
-              </Text>
               <Text fontSize="12px" color="gray.500">
-                Bookings
+                {bookings} Bookings
               </Text>
             </VStack>
             
             <VStack align="start" spacing={0}>
-              <Text fontSize="18px" fontWeight="700" color="gray.800">
-                {coaches}
-              </Text>
               <Text fontSize="12px" color="gray.500">
-                Coaches
+                {coaches} Coaches
               </Text>
             </VStack>
           </HStack>
 
           {/* Category Badge */}
-          <Badge
-            colorScheme="gray"
-            variant="subtle"
-            px={3}
-            py={1}
-            borderRadius="6px"
-            fontSize="12px"
+          <Text
+            fontWeight="bold"
+            fontSize="14px"
           >
             {category}
-          </Badge>
+          </Text>
 
           {/* Coach */}
           <Text fontSize="12px" color="gray.500">
@@ -132,7 +126,7 @@ const RecommendedPrograms: React.FC = () => {
   ];
 
   return (
-    <Box>
+    <Box bg="white" p={6} borderRadius="12px" boxShadow="sm">
       {/* Section Header */}
       <Flex justify="space-between" align="center" mb={4}>
         <HStack spacing={3}>
@@ -152,7 +146,24 @@ const RecommendedPrograms: React.FC = () => {
       </Flex>
 
       {/* Programs Grid */}
-      <HStack spacing={4} overflowX="auto" pb={4}>
+      <HStack spacing={4} overflowX="auto"
+        css={{
+          '&::-webkit-scrollbar': {
+            height: '6px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: '#f1f1f1',
+            borderRadius: '3px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: '#c1c1c1',
+            borderRadius: '3px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: '#a1a1a1',
+          },
+        }}
+      pb={4} >
         {programs.map((program, index) => (
           <ProgramCard key={index} {...program} />
         ))}
