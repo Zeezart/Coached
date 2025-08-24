@@ -33,45 +33,42 @@ const Dashboard: React.FC = () => {
       {/* Main Content Area */}
       <Box ml="240px" pt="72px">
         <Container maxW="none" px={6} py={6}>
-          <Flex gap={6}>
-            {/* Left Column - Main Content */}
-            <Box flex={1}>
-              {/* Welcome Section */}
-              <VStack align="start" spacing={1} mb={8}>
-                <Text fontSize="24px" fontWeight="700" color="gray.800">
-                  Welcome Adams
-                </Text>
-                <Text fontSize="14px" color="gray.500">
-                  We can't wait to see Rancha PLC's growth through Coached
-                </Text>
-              </VStack>
+          {/* Welcome Section */}
+          <VStack align="start" spacing={1} mb={6}>
+            <Text fontSize="24px" fontWeight="700" color="gray.800">
+              Welcome Adams
+            </Text>
+            <Text fontSize="14px" color="gray.500">
+              We can't wait to see Rancha PLC's growth through Coached
+            </Text>
+          </VStack>
 
-              {/* Active Bookings Section */}
-              <Box mb={8}>
-                <ActiveBookings />
-              </Box>
-
-              {/* Stats Cards */}
-              <Box mb={8}>
-                <StatsCards />
-              </Box>
-
-              {/* Recommended Programs */}
-              <Box mb={8}>
-                <RecommendedPrograms />
-              </Box>
-
-              {/* Recent Messages and Invoices */}
-              <Box>
-                <RecentSections />
-              </Box>
+          {/* Top Row: Active Bookings + Right Column (Employee List + Stats) */}
+          <Flex gap={6} mb={6} align="start">
+            {/* Active Bookings - 55% width */}
+            <Box flex="0 0 55%">
+              <ActiveBookings />
             </Box>
 
-            {/* Right Column - Employee List */}
-            <Box>
-              <EmployeeList />
+            {/* Right Column - Employee List and Stats Cards */}
+            <Box flex={1}>
+              {/* Employee List */}
+              <Box mb={6}>
+                <EmployeeList />
+              </Box>
+              
+              {/* Stats Cards */}
+              <StatsCards />
             </Box>
           </Flex>
+
+          {/* Recommended Programs - Full Width */}
+          <Box mb={6}>
+            <RecommendedPrograms />
+          </Box>
+
+          {/* Recent Messages and Invoices - Side by Side */}
+          <RecentSections />
         </Container>
       </Box>
     </Box>

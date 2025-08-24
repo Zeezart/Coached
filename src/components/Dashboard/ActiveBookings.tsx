@@ -169,12 +169,33 @@ const ActiveBookings: React.FC = () => {
         </Button>
       </Flex>
 
-      {/* Bookings Grid */}
-      <HStack spacing={4} overflowX="auto" pb={4}>
-        {bookings.map((booking, index) => (
-          <BookingCard key={index} {...booking} />
-        ))}
-      </HStack>
+      {/* Bookings Grid - Scrollable within container */}
+      <Box
+        overflowX="auto"
+        pb={4}
+        css={{
+          '&::-webkit-scrollbar': {
+            height: '6px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: '#f1f1f1',
+            borderRadius: '3px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: '#c1c1c1',
+            borderRadius: '3px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: '#a1a1a1',
+          },
+        }}
+      >
+        <HStack spacing={4} minW="fit-content">
+          {bookings.map((booking, index) => (
+            <BookingCard key={index} {...booking} />
+          ))}
+        </HStack>
+      </Box>
     </Box>
   );
 };
